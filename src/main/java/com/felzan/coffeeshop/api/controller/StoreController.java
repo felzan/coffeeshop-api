@@ -26,4 +26,9 @@ public class StoreController {
     public ResponseEntity<List<StoreDocument>> getStores() {
         return ResponseEntity.ok().body(storeService.getStores());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<StoreDocument> getStoreById(@PathVariable String id) {
+        return ResponseEntity.ok().body(storeService.getStoreById(id));
+    }
 }
