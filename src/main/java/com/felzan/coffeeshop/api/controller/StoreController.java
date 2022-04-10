@@ -1,5 +1,7 @@
 package com.felzan.coffeeshop.api.controller;
 
+import com.felzan.coffeeshop.api.repository.StoreDocument;
+import com.felzan.coffeeshop.api.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,12 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/stores")
+@RequestMapping("/api/v1/stores")
 public class StoreController {
 
-    @PostMapping
-    public ResponseEntity<?> postStore(@RequestBody StoreRequest request) {
+    private final StoreService storeService;
 
-        return ResponseEntity.ok().build();
+    @PostMapping
+    public ResponseEntity<StoreDocument> postStore(@RequestBody StoreRequest request) {
+        return ResponseEntity.ok().body(storeService.createStore(request));
     }
 }
