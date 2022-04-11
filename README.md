@@ -1,6 +1,7 @@
 ## Coffeeshop
 Coffeeshop is a white-label product intended to work for small companies.
-It will have:
+
+Features:
 
 - Multiple store management
 - Category and product management
@@ -19,6 +20,9 @@ The idea is to make the project incrementally, ideas for future:
 - Product options (e.g. with cup lid, milk type)
 - Other payment integrations
 - Propose something!
+
+### Ordering flow
+![](flow.jpg)
 
 ### Order
 POST localhost:8080/api/v1/orders
