@@ -12,6 +12,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin
 @RequestMapping(value = "/api/v1/orders", produces = APPLICATION_JSON_VALUE)
 public class OrderController {
 
