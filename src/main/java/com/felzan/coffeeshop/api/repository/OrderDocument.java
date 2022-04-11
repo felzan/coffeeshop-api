@@ -9,20 +9,23 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "product")
-public class ProductDocument {
+@Document(collection = "order")
+public class OrderDocument {
 
     @Id
     private String id;
-    private String image;
-    private String title;
-    private String subtitle;
-    private String description;
-    private BigDecimal price;
-    private String categoryId;
+    @Builder.Default
+    private LocalDateTime createdAt = LocalDateTime.now();
+    private String clientName;
+    private BigDecimal total;
+    private List<ProductDocument> products;
+    private boolean paid;
+
 }

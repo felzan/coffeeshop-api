@@ -8,6 +8,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -35,6 +38,13 @@ public class ProductService {
 
     public ProductDocument getProductById(String id) {
         return productRepository.findById(id).orElseThrow();
+    }
+
+    public List<ProductDocument> getAllProductsByIds(List<String> ids) {
+        List<ProductDocument> list = new ArrayList<>();
+        Iterable<ProductDocument> documents = productRepository.findAllById(ids);
+        documents.forEach(list::add);
+        return list;
     }
 
     public List<ProductDocument> getProductsByCategoryId(String id) {
