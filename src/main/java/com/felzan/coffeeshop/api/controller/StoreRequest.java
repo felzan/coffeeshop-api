@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 import java.util.Map;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class StoreRequest {
 
     private String image;

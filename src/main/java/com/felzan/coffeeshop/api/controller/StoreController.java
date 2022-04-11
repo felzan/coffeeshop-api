@@ -31,4 +31,9 @@ public class StoreController {
     public ResponseEntity<StoreDocument> getStoreById(@PathVariable String id) {
         return ResponseEntity.ok().body(storeService.getStoreById(id));
     }
+
+    @GetMapping("/{id}/menu")
+    public ResponseEntity<MenuResponse> getMenuByStoreId(@PathVariable String id) {
+        return ResponseEntity.ok().body(storeService.getMenuByStoreId(id));
+    }
 }
